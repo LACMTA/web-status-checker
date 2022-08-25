@@ -1,4 +1,4 @@
-name: Scheduled Build
+name: Daily update of uptime history
 on:
   workflow_dispatch:
   schedule:
@@ -8,15 +8,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      url1: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-api.yml'
+      url1: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-net.yml'
+      url2: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-api.yml'
+      url3: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-time-tables-api.yml'
+      url4: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/swiftly-api.yml'
+      url5: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/swiftly-bus-arrivals-map.yml'
+      url6: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/swiftly-rail-arrivals-map.yml'
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Download Feed
+      - name: Download Commit History Feed from GitHub API
         run: |-
-          curl $url1 | jq . > ./data/metro_api_output_file.json
+          curl $url1 | jq . > ./data/metro_net_uptime_history.json
+          curl $url2 | jq . > ./data/metro_api_uptime_history.json
+          curl $url3 | jq . > ./data/metro_time_tables_api_history.json
+          curl $url4 | jq . > ./data/swiftly_api_history.json
+          curl $url5 | jq . > ./data/swiftly_bus_arrivals_map_history.json
+          curl $url6 | jq . > ./data/swiftly_rail_arrivals_map_history.json
 
       - name: Commit and push changes
         run: |-
