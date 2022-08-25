@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/LACMTA/11ty-web-template/issues"
   },
-  "homepage": "https://github.com/LACMTA/11ty-web-template#readme"
+  "homepage": "https://github.com/LACMTA/11ty-web-template#readme",
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  },
+  "devDependencies": {
+    "memfs": "^3.4.7",
+    "webpack": "^5.74.0"
+  }
 }
