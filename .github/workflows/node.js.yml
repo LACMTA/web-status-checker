@@ -42,8 +42,8 @@ jobs:
       run: ls -lR
     - name: Commit and push changes
       run: |
-        git config --global user.name "matikin9"
-        git config --global user.email "matikin9@gmail.com"
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
         git add .
         git commit -am 'Auto clean and build site'
         git push -f

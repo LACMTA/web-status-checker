@@ -24,7 +24,8 @@ function get_the_url_parameter(site_to_look_up){
 }
 function add_commit_chart(site){
     let url_parameter = get_the_url_parameter(site)
-    let data_url = git_api_url + '?path=' + url_parameter+ '&since=2020-01-01T00:00:00Z';
+    let data_url = './data/'+site+'-uptime-history.json';
+    // let data_url = './data/' + '?path=' + url_parameter+ '&since=2020-01-01T00:00:00Z';
     fetch(data_url).then(response => response.json()).then(data => {
         
         let commit_data = data.map(commit => {

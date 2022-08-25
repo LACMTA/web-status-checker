@@ -21,12 +21,12 @@ jobs:
           fetch-depth: 0
       - name: Download Commit History Feed from GitHub API
         run: |-
-          curl $url1 | jq . > ./data/metro_net_uptime_history.json
-          curl $url2 | jq . > ./data/metro_api_uptime_history.json
-          curl $url3 | jq . > ./data/metro_time_tables_api_history.json
-          curl $url4 | jq . > ./data/swiftly_api_history.json
-          curl $url5 | jq . > ./data/swiftly_bus_arrivals_map_history.json
-          curl $url6 | jq . > ./data/swiftly_rail_arrivals_map_history.json
+          curl $url1 | jq . > ./data/metro-net-uptime-history.json
+          curl $url2 | jq . > ./data/metro-api-uptime-history.json
+          curl $url3 | jq . > ./data/metro-time-tables-api-history.json
+          curl $url4 | jq . > ./data/swiftly-api-history.json
+          curl $url5 | jq . > ./data/swiftly-bus-arrivals-map-history.json
+          curl $url6 | jq . > ./data/swiftly-rail-arrivals-map-history.json
 
       - name: Commit and push changes
         run: |-
