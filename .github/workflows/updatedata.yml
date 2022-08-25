@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       - name: Download Feed
         run: |-
-          curl "[url1]" | jq . > output_file.json
+          curl $url1 | jq . > metro_api_output_file.json
 
       - name: Commit and push changes
         run: |-
