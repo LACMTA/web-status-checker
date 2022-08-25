@@ -1,5 +1,6 @@
 const git_api_url = 'https://api.github.com/repos/LACMTA/uptime/commits';
-
+// const debug_url = 'https://api.github.com/repos/upptime/upptime/commits';
+// https://github.com/upptime/upptime/blob/master/history/hacker-news.yml
 const urls_to_chart = ['metro-net','metro-api']
 
 
@@ -9,7 +10,9 @@ function init(){
 
 function get_commits(){
     urls_to_chart.forEach(data=> {add_commit_chart(data)});
-
+    // let url_parameter = `/history/hacker-news.yml`
+    // let data_url = debug_url + '?path=' + url_parameter+ '&since=2019-01-01T00:00:00Z';
+    // fetch(data_url).then(response => response.json()).then(data => {console.log(data)})
 }
 function get_the_url_parameter(site_to_look_up){
     switch (site_to_look_up) {
