@@ -7,9 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      url1: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-api.yml'
     steps:
-      - env:
-          url1: 'https://api.github.com/repos/LACMTA/uptime/commits?path=/history/metro-api.yml'
       - name: Check out repo
         uses: actions/checkout@v2
         with:
@@ -17,6 +17,7 @@ jobs:
       - name: Download Feed
         run: |-
           curl "[url1]" | jq . > output_file.json
+
       - name: Commit and push changes
         run: |-
           git diff
